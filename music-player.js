@@ -12,6 +12,7 @@ const player = {
   _progress: document.querySelector("#progress"),
   _btnRepeat: document.querySelector(".btn-repeat"),
   _btnRandom: document.querySelector(".btn-random"),
+  cdElement: document.querySelector(".cd"),
   // Mảng chứa các bài hát
   _songs: [
     {
@@ -130,12 +131,19 @@ const player = {
     this._audio.addEventListener("play", () => {
       this._playIcon.classList.add("fa-pause");
       this._playIcon.classList.remove("fa-play");
+
+      // Thêm class và chạy animation quay đĩa CD
+      this.cdElement.classList.add("playing");
+      this.cdElement.style.animationPlayState = "running";
     });
 
     // Doi icon play thanh song pause
     this._audio.addEventListener("pause", () => {
       this._playIcon.classList.add("fa-play");
       this._playIcon.classList.remove("fa-pause");
+
+      // Tạm dừng animation quay đĩa CD
+      this.cdElement.style.animationPlayState = "paused";
     });
 
     // lui lai bai dang sau

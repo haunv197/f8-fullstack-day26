@@ -69,6 +69,16 @@ header h2 {
   width: 200px;
 }
 
+.cd.playing {
+  animation: cd-rotate linear 5s infinite;
+}
+
+@keyframes cd-rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
 .cd-thumb {
   width: 100%;
   padding-top: 100%;
